@@ -1,0 +1,148 @@
+CREATE TABLE coaches_career (
+    coachid VARCHAR(9) NOT NULL,
+  	firstname VARCHAR(20) NOT NULL,
+  	lastname VARCHAR(20),
+  	season_win NUMERIC(4,0) NOT NULL,
+    season_loss NUMERIC(4,0) NOT NULL,  
+    playoff_win NUMERIC(4,0) NOT NULL,
+    playoff_loss NUMERIC(4,0) NOT NULL, 
+  	PRIMARY KEY (coachid));
+
+CREATE TABLE teams (
+    team CHAR(3) NOT NULL,
+  	location VARCHAR(20) NOT NULL,
+  	name VARCHAR(20),
+  	leag CHAR(1) NOT NULL,
+  	PRIMARY KEY (team, leag));
+
+CREATE TABLE coaches_season (
+    coachid VARCHAR(9) NOT NULL,
+    year NUMERIC(4,0) NOT NULL,
+    yr_order NUMERIC(4,0),
+  	firstname VARCHAR(20) NOT NULL,
+  	lastname VARCHAR(20),
+  	season_win NUMERIC(4,0) NOT NULL,
+    season_loss NUMERIC(4,0) NOT NULL,  
+    playoff_win NUMERIC(4,0) NOT NULL,
+    playoff_loss NUMERIC(4,0) NOT NULL, 
+    team CHAR(3) NOT NULL,
+  	PRIMARY KEY (coachid, year, team));
+
+CREATE TABLE player_playoffs_career (
+    ilkid CHAR(9) NOT NULL,
+    firstname VARCHAR(20) NOT NULL,
+  	lastname VARCHAR(20),
+    leag CHAR(1) NOT NULL,
+    gp NUMERIC(4,0) NOT NULL,
+    minutes NUMERIC(4,0) NOT NULL,
+    pts NUMERIC(4,0) NOT NULL,
+    dreb NUMERIC(4,0) NOT NULL,
+    oreb NUMERIC(4,0) NOT NULL,
+    reb NUMERIC(4,0) NOT NULL,
+    asts NUMERIC(4,0) NOT NULL,
+    stl NUMERIC(4,0) NOT NULL,
+    blk NUMERIC(4,0) NOT NULL,
+    turnover NUMERIC(4,0) NOT NULL,
+    pf NUMERIC(4,0) NOT NULL,
+    fga NUMERIC(4,0) NOT NULL,
+    fgm NUMERIC(4,0) NOT NULL,
+    fta NUMERIC(4,0) NOT NULL,
+    ftm NUMERIC(4,0) NOT NULL,
+    tpa NUMERIC(4,0) NOT NULL,
+    tpm NUMERIC(4,0) NOT NULL,
+    PRIMARY KEY(ilkid, leag)
+);
+
+CREATE TABLE player_playoffs(
+    ilkid CHAR(9) NOT NULL,
+    year NUMERIC(4,0) NOT NULL,
+    firstname VARCHAR(20) NOT NULL,
+  	lastname VARCHAR(20),
+    team CHAR(3) NOT NULL,
+    leag CHAR(1) NOT NULL,
+    gp NUMERIC(4,0) NOT NULL,
+    minutes NUMERIC(4,0) NOT NULL,
+    pts NUMERIC(4,0) NOT NULL,
+    dreb NUMERIC(4,0) NOT NULL,
+    oreb NUMERIC(4,0) NOT NULL,
+    reb NUMERIC(4,0) NOT NULL,
+    asts NUMERIC(4,0) NOT NULL,
+    stl NUMERIC(4,0) NOT NULL,
+    blk NUMERIC(4,0) NOT NULL,
+    turnover NUMERIC(4,0) NOT NULL,
+    pf NUMERIC(4,0) NOT NULL,
+    fga NUMERIC(4,0) NOT NULL,
+    fgm NUMERIC(4,0) NOT NULL,
+    fta NUMERIC(4,0) NOT NULL,
+    ftm NUMERIC(4,0) NOT NULL,
+    tpa NUMERIC(4,0) NOT NULL,
+    tpm NUMERIC(4,0) NOT NULL,
+    PRIMARY KEY(ilkid, year, team)
+);
+
+CREATE TABLE player_regular_season_career(
+    ilkid CHAR(9) NOT NULL,
+    firstname VARCHAR(20) NOT NULL,
+  	lastname VARCHAR(20),
+    leag CHAR(1) NOT NULL,
+    gp NUMERIC(4,0) NOT NULL,
+    minutes NUMERIC(4,0) NOT NULL,
+    pts NUMERIC(4,0) NOT NULL,
+    oreb NUMERIC(4,0) NOT NULL,
+    dreb NUMERIC(4,0) NOT NULL,
+    reb NUMERIC(4,0) NOT NULL,
+    asts NUMERIC(4,0) NOT NULL,
+    stl NUMERIC(4,0) NOT NULL,
+    blk NUMERIC(4,0) NOT NULL,
+    turnover NUMERIC(4,0) NOT NULL,
+    pf NUMERIC(4,0) NOT NULL,
+    fga NUMERIC(4,0) NOT NULL,
+    fgm NUMERIC(4,0) NOT NULL,
+    fta NUMERIC(4,0) NOT NULL,
+    ftm NUMERIC(4,0) NOT NULL,
+    tpa NUMERIC(4,0) NOT NULL,
+    tpm NUMERIC(4,0) NOT NULL,
+    PRIMARY KEY(ilkid,leag)
+);
+
+CREATE TABLE player_regular_season(
+    ilkid CHAR(9) NOT NULL,
+    year NUMERIC(4,0) NOT NULL,
+    firstname VARCHAR(20) NOT NULL,
+  	lastname VARCHAR(20),
+    team CHAR(3) NOT NULL,
+    leag CHAR(1) NOT NULL,
+    gp NUMERIC(4,0) NOT NULL,
+    minutes NUMERIC(4,0) NOT NULL,
+    pts NUMERIC(4,0) NOT NULL,
+    oreb NUMERIC(4,0) NOT NULL,
+    dreb NUMERIC(4,0) NOT NULL,
+    reb NUMERIC(4,0) NOT NULL,
+    asts NUMERIC(4,0) NOT NULL,
+    stl NUMERIC(4,0) NOT NULL,
+    blk NUMERIC(4,0) NOT NULL,
+    turnover NUMERIC(4,0) NOT NULL,
+    pf NUMERIC(4,0) NOT NULL,
+    fga NUMERIC(4,0) NOT NULL,
+    fgm NUMERIC(4,0) NOT NULL,
+    fta NUMERIC(4,0) NOT NULL,
+    ftm NUMERIC(4,0) NOT NULL,
+    tpa NUMERIC(4,0) NOT NULL,
+    tpm NUMERIC(4,0) NOT NULL,
+    PRIMARY KEY(ilkid,year,team)
+);
+
+CREATE TABLE players (
+    ilkid CHAR(9) NOT NULL,
+    firstname VARCHAR(20) NOT NULL,
+  	lastname VARCHAR(20),
+    position CHAR(1) NOT NULL,
+    firstseason NUMERIC(4,0) NOT NULL,
+    lastseason NUMERIC(4,0) NOT NULL,
+    h_feet NUMERIC(1,0) NOT NULL,
+    h_inches NUMERIC(1,1) NOT NULL,
+    weight NUMERIC(3,0) NOT NULL,
+    college VARCHAR(20) NOT NULL,
+    birthdate VARCHAR(20) NOT NULL,
+    PRIMARY KEY(ilkid)
+);
